@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-#require "ting/connect.php";
+require "ting/connect_local.php";
 include "ting/header.php";
 echo "<footer class=\"footer\">";
 include "ting/footer.html";
@@ -14,9 +14,14 @@ echo "</footer>";
 <body>
     <p class="info">
         HeiHei<br>
-        Dis is ours bewtiful miror!
+        Dis is our bewtiful miror!
     </p>
+
+    <a href="login/login.php" class="preview">Admin</a>
+    
     <img src="media/logo.png" class="logo" alt="LogoSpeil" height="400">
+
+    <a href="login/login.php" class="main">User</a>
 </body>
 
 </html>
