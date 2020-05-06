@@ -46,6 +46,12 @@ a{
 .main {
     grid-column: 2/3;
     grid-row: 3/4;
+    background-color: #556F7A;
+}
+
+form{
+    justify-content: center;
+    font-size: small;
 }
 
 .footer {
@@ -54,4 +60,7 @@ a{
     background-color: #556F7A;
     border-radius: 25px;
     text-align: center;
+}
+.id{
+    background-color: aliceblue;
 }
