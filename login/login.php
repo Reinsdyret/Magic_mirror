@@ -1,8 +1,7 @@
 <?php
   session_start();
-?>
-<?php
-require('connect.php')
+
+require('../ting/connect_local.php')
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +16,7 @@ if ( !isset($_SESSION["username"]) )
 ?>
         <form action="login_check.php" method="post">
           <input type="text"
-                 name="username" id="username"
+                 name="email" id="username"
                  placeholder="Username">
           <input type="password"
                  name="password" id="username"
