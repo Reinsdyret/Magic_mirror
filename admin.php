@@ -7,35 +7,35 @@ echo "</header>";
 echo "<footer class=\"footer\">";
 include "ting/footer.html";
 echo "</footer>";
-$_SESSION["email"] = "lars.haukland@gmail.com";
-$email = $_SESSION["email"];
+$email = $_SESSION["mail"];
 $sql = "SELECT id FROM mmperson WHERE email = \"$email\"";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)){
     $id = $row["id"];
+    $_SESSION["id"] = $id;
 }
 
 $widgets = ["","","",""];
 
 
-$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"huskeliste\"";
+$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"huskeliste\" AND bruk";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0){$huskeliste = True;}
+if ($result){$huskeliste = True;}
 else{$huskeliste = False;}
 
-$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"nyheter\"";
+$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"nyheter\" AND bruk";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0){$nyheter = True;}
+if ($result){$nyheter = True;}
 else{$nyheter = False;}
 
-$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"timeplan\"";
+$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"timeplan\" AND bruk";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0){$timeplan = True;}
+if ($result){$timeplan = True;}
 else{$timeplan = False;}
 
-$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"vær\"";
+$sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"vær\" AND bruk";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0){$vær = True;}
+if ($result){$vær = True;}
 else{$vær = False;}
 
 
@@ -56,14 +56,16 @@ else{$vær = False;}
             }
         ?>>
         <label for="huskeliste" class="huskeliste">Huskeliste</label>
-        <input type="text" name="huskeliste_x_start">
-        <label for="x_start">X start</label>
-        <input type="text" name="huskeliste_x_end">
-        <label for="x_start">X end</label>
-        <input type="text" name="huskeliste_y_start">
-        <label for="x_start">Y start</label>
-        <input type="text" name="huskeliste_y_end">
-        <label for="x_start">Y end</label>
+        <select id="cars" name="huskeliste_box">
+        <?php
+        $i = 1;
+        while ($i <= 9){
+            echo "<option value\"$i\">$i</option>";
+            $i++;
+        }
+        ?>
+        </select>
+        <label for="huskeliste_box">box</label>
             <br>   
         
         <input type="checkbox" name="nyheter" id="nyheter" value="nyheter" class="nyheter"
@@ -73,14 +75,16 @@ else{$vær = False;}
             }
         ?>>
         <label for="nyheter" class="nyheter">Nyheter</label>
-        <input type="text" name="nyheter_x_start">
-        <label for="x_start">X start</label>
-        <input type="text" name="nyheter_x_end">
-        <label for="x_start">X end</label>
-        <input type="text" name="nyheter_y_start">
-        <label for="x_start">Y start</label>
-        <input type="text" name="nyheter_y_end">
-        <label for="x_start">Y end</label>
+        <select id="cars" name="nyheter_box">
+        <?php
+        $i = 1;
+        while ($i <= 9){
+            echo "<option value\"$i\">$i</option>";
+            $i++;
+        }
+        ?>
+        </select>
+        <label for="nyheter_box">box</label>
             <br>
 
         
@@ -91,14 +95,16 @@ else{$vær = False;}
             }
         ?>>
         <label for="timeplan" class="timeplan">Timeplan</label>
-        <input type="text" name="timeplan_x_start">
-        <label for="x_start">X start</label>
-        <input type="text" name="timeplan_x_end">
-        <label for="x_start">X end</label>
-        <input type="text" name="timeplan_y_start">
-        <label for="x_start">Y start</label>
-        <input type="text" name="timeplan_y_end">
-        <label for="x_start">Y end</label>
+        <select id="cars" name="timeplan_box">
+        <?php
+        $i = 1;
+        while ($i <= 9){
+            echo "<option value\"$i\">$i</option>";
+            $i++;
+        }
+        ?>
+        </select>
+        <label for="timeplan_box">box</label>
             <br>
         
 
@@ -109,16 +115,21 @@ else{$vær = False;}
             }
         ?>>
         <label for="vær" class="vær">Vær</label>
-        <input type="text" name="vær_x_start">
-        <label for="x_start">X start</label>
-        <input type="text" name="vær_x_end">
-        <label for="x_start">X end</label>
-        <input type="text" name="vær_y_start">
-        <label for="x_start">Y start</label>
-        <input type="text" name="vær_y_end">
-        <label for="x_start">Y end</label>
+        <select id="cars" name="vær_box">
+        <?php
+        $i = 1;
+        while ($i <= 9){
+            echo "<option value\"$i\">$i</option>";
+            $i++;
+        }
+        ?>
+        </select>
+        <label for="vær_box">box</label>
             <br>
         <input type="submit">
     </form>
+    <?php
+    include "sql/admin_sql.php";
+    ?>
 </body>
 </html>
