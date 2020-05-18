@@ -64,3 +64,13 @@ form{
 .id{
     background-color: aliceblue;
 }
+
+td {
+    border: 5px solid black;
+    display: table-cell;
+    vertical-align: inherit;
+    font-size: 50px;
+    background-color: #556F7A;
+    padding: auto;
+    text-align: center;
+}
