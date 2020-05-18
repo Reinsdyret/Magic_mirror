@@ -21,12 +21,15 @@ session_start();
     </a>
 
     <?php
-    echo "<a class =\"centerText\" href=\"index.php\">";
-    echo "<li>";
-    if (isset($_SESSION['login'])) {
+    
+    if (isset($_SESSION['mail'])) {
+        echo "<a class =\"centerText\" href=\"login/logout.php\">";
+        echo "<li>";
         echo "<p>Logout</p>";
     }
     else{
+        echo "<a class =\"centerText\" href=\"login/login.php\">";
+        echo "<li>";
         echo "<p>Login</p>";
     }
     echo "</li>";
