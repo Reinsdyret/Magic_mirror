@@ -45,7 +45,4 @@ $sql = "INSERT INTO mmwidget_i_bruk (person_id, type, box, bruk)
         ($id, \"vær\", $vær_box, $check_vær)";
 
 $result = mysqli_query($conn,$sql);
-if($result){
-    echo "INSERT SUCESSFULL";
-}
 ?>
