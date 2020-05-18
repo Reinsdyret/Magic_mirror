@@ -17,7 +17,7 @@ include "../ting/header.php";
                 AND   passord = \"$pass\"";
         $result = mysqli_query($conn, $sql);
         if ( mysqli_num_rows($result) == 1 ) {          
-          $_SESSION["username"] = $user;
+          $_SESSION["mail"] = $mail;
           echo "Login OK";
           echo "<meta http-equiv = \"refresh\" content = \"2; url = ../index.php\" />";
         }  
