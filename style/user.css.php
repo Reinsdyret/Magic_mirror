@@ -16,8 +16,11 @@ while($row = mysqli_fetch_assoc($result)){
     if($row["type"] == "timeplan" && $row["bruk"]){
         $timeplan_box = $row["box"];
     }
-        if($row["type"] == "huskeliste" && $row["bruk"]){
-            $huskeliste_box = $row["box"];
+    if($row["type"] == "huskeliste" && $row["bruk"]){
+        $huskeliste_box = $row["box"];
+    }
+    if($row["type"] == "klokke" && $row["bruk"]){
+        $klokke_box = $row["box"];
     }
 }
 ?>
@@ -28,4 +31,10 @@ while($row = mysqli_fetch_assoc($result)){
 
 .huskeliste{
     grid-area:<?php if(isset($huskeliste_box)){echo "g".$huskeliste_box;}?>;
+}
+
+.klokke{
+    grid-area:<?php if(isset($klokke_box)){echo "g".$klokke_box;}?>;
+    font-size: 40px;
+    justify-self: center;
 }
