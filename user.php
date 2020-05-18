@@ -9,6 +9,7 @@ $id = $_SESSION["id"];
 include "sql/user_sql.php";
 $time = True;
 $husk = True;
+$klokke = True;
 
 while($row = mysqli_fetch_assoc($result)){
     if($row["type"] == "timeplan" && $row["bruk"] && $time){
@@ -31,7 +32,11 @@ while($row = mysqli_fetch_assoc($result)){
         echo "</ul>";
         echo "</nav>";
     }
+    if($row["type"] == "klokke" && $row["bruk"] && $klokke){
+      include "ting/klokke.html";
+    }
 }
+
 
 ?>
 <!DOCTYPE html>
