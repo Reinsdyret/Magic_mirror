@@ -7,13 +7,7 @@ echo "</header>";
 echo "<footer class=\"footer\">";
 include "ting/footer.html";
 echo "</footer>";
-$email = $_SESSION["mail"];
-$sql = "SELECT id FROM mmperson WHERE email = \"$email\"";
-$result = mysqli_query($conn, $sql);
-while ($row = mysqli_fetch_assoc($result)){
-    $id = $row["id"];
-    $_SESSION["id"] = $id;
-}
+include "ting/id.php";
 
 $sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"huskeliste\" AND bruk";
 $result = mysqli_query($conn, $sql);
@@ -126,7 +120,7 @@ else{$vær = False;}
         <input type="submit">
     </form>
     <?php
-    #include "sql/admin_sql.php";
+    include "sql/admin_sql.php";
     include "ting/admin_table.html";
     ?>
 </body>
