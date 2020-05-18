@@ -15,9 +15,6 @@ while ($row = mysqli_fetch_assoc($result)){
     $_SESSION["id"] = $id;
 }
 
-$widgets = ["","","",""];
-
-
 $sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"huskeliste\" AND bruk";
 $result = mysqli_query($conn, $sql);
 if ($result){$huskeliste = True;}
@@ -129,7 +126,8 @@ else{$vær = False;}
         <input type="submit">
     </form>
     <?php
-    include "sql/admin_sql.php";
+    #include "sql/admin_sql.php";
+    include "ting/admin_table.html";
     ?>
 </body>
 </html>

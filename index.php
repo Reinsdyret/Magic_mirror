@@ -16,12 +16,24 @@ echo "</footer>";
         HeiHei<br>
         Dis is our bewtiful miror!
     </p>
-
-    <a href="login/login.php" class="preview">Admin</a>
+    <?php
+    if(isset($_SESSION["mail"])){
+        echo "<a href=\"admin.php\" class=\"preview\">";
+    }
+    else{
+        echo "<a href=\"login/login.php\" class=\"preview\">";
+    }
+    ?>
+    Admin</a>
     
     <img src="media/logo.png" class="logo" alt="LogoSpeil" height="400">
 
-    <a href="login/login.php" class="main">User</a>
+    <?php
+    if (isset($_SESSION["mail"])){
+        echo "<a href=\"user.php\" class=\"main\">";
+    }
+    ?>
+    User</a>
 </body>
 
 </html>
