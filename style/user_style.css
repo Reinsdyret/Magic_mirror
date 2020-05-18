@@ -1,0 +1,9 @@
+body{
+    /*filter: grayscale(100%);*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "g1 g2 g3"
+                         "g4 g5 g6" 
+                         "g7 g8 g9";
+}
