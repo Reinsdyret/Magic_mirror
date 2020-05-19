@@ -33,6 +33,7 @@ while($row = mysqli_fetch_assoc($result)){
     }
     if($row["type"] == "klokke" && $row["bruk"] && $klokke){
       include "ting/klokke.html";
+      $klokke = False;
     }
 }
 
