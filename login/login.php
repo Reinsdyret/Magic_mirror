@@ -1,27 +1,38 @@
 <?php
-  session_start();
+  
 
-require('../ting/connect_local.php')
+require('../ting/connect_local.php');
+include "../ting/header.php";
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
-        <title>Front page</title>
+        <title>Log inn</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../style/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Roboto&display=swap" rel="stylesheet"> 
   </head>
   <body>
+    <main id="login_page">
 <?php
+
 if ( !isset($_SESSION["username"]) )
 {
 ?>
-        <form action="login_check.php" method="post">
-          <input type="text"
-                 name="email" id="username"
-                 placeholder="Username">
+       
+       <form id="login_skjema" action="login_check.php" method="post">
+         <label id="loginn_tittel"><h2>Logg inn</h2></label>
+        <label for="password">E-mail</label>
+        <input type="email"
+                 name="email" id="email"
+                 placeholder="Mail">
+          <label for="password" >Passord</label>
           <input type="password"
                  name="password" id="username"
-                 placeholder="Password">
+                 placeholder="Passord">
           <input type="submit" value="Log in">
+          <label id="ikke_registrert"><a href="../login/registrer.php">Ikke registrert?</a></label>
         </form>
 <?php
 } else {
@@ -29,5 +40,6 @@ if ( !isset($_SESSION["username"]) )
   echo "<a href=\"logout.php\">Log out</a>";
 }
 ?>
+</main>
   </body>
 </html>

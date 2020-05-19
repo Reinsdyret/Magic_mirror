@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <?php
 require "ting/connect_local.php";
-echo "<header class=\"header\">";
 include "ting/header.php";
-echo "</header>";
-echo "<footer class=\"footer\">";
+include "ting/nav.php";
 include "ting/footer.html";
-echo "</footer>";
-include "ting/id.php";
+
+
 
 $sql = "SELECT * FROM mmwidget_i_bruk WHERE type = \"huskeliste\" AND bruk";
 $result = mysqli_query($conn, $sql);
@@ -35,6 +33,7 @@ else{$vær = False;}
 <html>
 <head>
     <title>AdminPage</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/admin_style.css">
 </head>
 <body>

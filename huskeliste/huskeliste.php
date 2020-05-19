@@ -1,5 +1,9 @@
 <?php 
-include "../ting/header.php"?>
+$title= basename(__FILE__);
+include "../ting/header.php";?>
+<?php 
+include "../ting/nav.php";
+?>
 <?php
  $sysinfo = "";
 
@@ -51,18 +55,21 @@ include "../ting/header.php"?>
  <head>
   <title>Huskeliste</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Roboto&display=swap" rel="stylesheet"> 
  </head>
  <body>
-  <header><h1>To-do</h1></header>
-  <main>
-   <ul>
+  
+  <main id="huskeliste_page">
+   <ul id="huskeliste">
+       <li id=hl_tittel><h2>Huskeliste</h2></li>
    <?php
     $sql = "SELECT id, content, status FROM hl_task WHERE status <> 2";
     $result = mysqli_query( $conn, $sql);
 
     if ( mysqli_num_rows($result) > 0) {
         while ( $row = mysqli_fetch_assoc($result) ) {
-            echo "<li>";
+            echo "<li class=\"hl_content\">";
             echo $row["content"];  
             $id = $row["id"];
             $status = $row["status"];
@@ -94,13 +101,14 @@ include "../ting/header.php"?>
         }
     }
    ?>
-   </ul>
-   <form action="huskeliste.php" method="post">
+   <li id="hl_form"> <form action="huskeliste.php" method="post">
     <input type="hidden" name="do" value="insert">
     <input type="text" name="content">
     <input type="submit" value="Legg til">
-   </form>
+   </form></li>
+   </ul>
+  
   </main>
-  <footer><?php echo $sysinfo; ?></footer>
+
  </body>
 </html>

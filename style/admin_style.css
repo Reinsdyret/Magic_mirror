@@ -74,3 +74,9 @@ td {
     padding: auto;
     text-align: center;
 }
+
+#huskeliste{
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}

@@ -6,37 +6,29 @@ session_start();
 <!DOCTYPE html>
 <html>
   <body>
-
-  <ul class="header">
-    <a class ="centerText" href="index.php">
-        <li>
-        <p>Home</p>
-        </li>
-    </a>
-
-    <a class ="centerText" href="login/registration.php">
-        <li>
-        <p>Registration</p>
-        </li>
-    </a>
-
-    <?php
-    
+<header>
+  <a href="../../magicmirror/index.php"><img id="logo" src="https://img.icons8.com/cotton/2x/mirror.png" alt="logo"></a> 
+  <h1 id="logo_tekst">Magic Mirror </h1>
+  <h1 id="refleksjon">Magic Mirror </h1>
+  <?php
+  if( isset($title)) {
     if (isset($_SESSION['mail'])) {
-        echo "<a class =\"centerText\" href=\"login/logout.php\">";
-        echo "<li>";
-        echo "<p>Logout</p>";
-    }
-    else{
-        echo "<a class =\"centerText\" href=\"login/login.php\">";
-        echo "<li>";
-        echo "<p>Login</p>";
-    }
-    echo "</li>";
-    echo "</a>";
+        echo"<ul class=\"loginn_knapper\">";
+        echo"<li class=\"liste_element\" id=\"logout_knapp\"><a  href=\"../../magicmirror/login/logout.php\">Logg ut</a></li";
+        echo"</ul>";
+     }
+     else{
+     echo"<ul class=\"loginn_knapper\">";
+     echo"<li class=\"liste_element\" id=\"register_knapp\"><a  href=\"login/registrer.php\">Registrer deg</a></li>";
+     echo"<li class=\"liste_element\" id=\"loginn_knapp\"><a  href=\"login/login.php\">Logg inn</a></li>";
+     
+     echo"</ul>";
+         }
+ 
+        }
 ?>
 
 
-</ul>
+</header>
   </body>
 </html>

@@ -2,7 +2,6 @@
 <?php
 session_start();
 include "ting/connect_local.php";
-include "ting/id.php";
 $id = $_SESSION["id"];
 
 

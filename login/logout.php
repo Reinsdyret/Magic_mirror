@@ -23,12 +23,16 @@
 
         <meta charset="utf-8">
 
-        <meta http-equiv="refresh" content="2; url='../index.php'">
+        
 
   </head>
 
   <body>
+<?php
+  echo "You are now logged out";
+  echo"<meta http-equiv=\"refresh\" content=\"2; url='../index.php'\">"
 
+?>
   </body>
 
 </html>
