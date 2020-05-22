@@ -26,7 +26,8 @@ while($row = mysqli_fetch_assoc($result)){
   <head>
     <title>Speil</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css"  href="ting/user_style.css">
+    <link rel="stylesheet" type="text/css"  href="style/user_style.css">
+    <link rel="stylesheet" type="text/css" href="style/user.css.php">
   </head>
   <body>
   </body>
