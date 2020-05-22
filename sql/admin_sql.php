@@ -37,7 +37,7 @@ $vær_box = $_POST["vær_box"];
 $id = $_SESSION["id"];
 
 
-$sql = "SELECT * from mmwidget_i_bruk WHERE person_id = $id"
+$sql = "SELECT * from mmwidget_i_bruk WHERE person_id = $id";
 $result = mysqli_query($conn,$sql);
 
 
@@ -64,4 +64,5 @@ else{
             ($id, \"vær\", $vær_box, $check_vær)";
 
     $result = mysqli_query($conn,$sql);
+}
 ?>
